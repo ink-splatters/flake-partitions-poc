@@ -29,25 +29,27 @@ nix flake run github:ink-splatters/flake-partitions-poc
 
 ## Development
 
-### dev shell
+### Dev shell
 
 ```sh
 nix develop github:ink-splatters/flake-partitions-poc --accept-flake-config
 ```
 
-### formatter
+### Run nix formatter
+
+currently formatter is `alejandra`
 
 ```sh
 nix fmt github:ink-splatters/flake-partitions-poc .
 ```
 
-### install pre-commit hooks
+### Install pre-commit hooks
 
 ```sh
 nix run github:ink-splatters/flake-partitions-poc#install-hooks
 ```
 
-### run pre-commit checks
+### Run pre-commit checks
 
 ```sh
 nix flake check github:ink-splatters/flake-partitions-poc
