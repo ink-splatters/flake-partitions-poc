@@ -9,7 +9,12 @@ _: {
 
       settings.hooks = {
         deadnix.enable = true;
-        markdownlint.enable = true;
+        markdownlint = {
+          enable = true;
+          settings.configuration = {
+            MD013.line_length = 120;
+          };
+        };
         nil.enable = true;
         alejandra.enable = true;
         statix.enable = true;
