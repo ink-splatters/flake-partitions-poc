@@ -13,7 +13,7 @@
         flake-compat.follows = "flake-compat";
       };
     };
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
   };
 
