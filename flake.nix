@@ -45,9 +45,9 @@
         formatter = "dev";
       };
       partitions.dev = {
-        extraInputsFlake = ./dev;
+        extraInputsFlake = ./nix/dev;
         module = {
-          imports = [./dev/flake-module.nix];
+          imports = [./nix/dev/flake-module.nix];
         };
       };
     };
