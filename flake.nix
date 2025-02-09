@@ -11,32 +11,17 @@
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
   };
-  outputs = inputs @ {
-    flake-parts,
-    nixpkgs,
-    ...
-  }: let
-    systems = import inputs.systems;
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs = inputs @ {flake-parts, ...}:
+    flake-parts.lib.mkFlake {inherit inputs;} (let
+      systems = import inputs.systems;
+      flakeModules.default = import nix/flake-module.nix {inherit inputs;};
+    in {
+      debug = true;
       imports = [
         flake-parts.flakeModules.partitions
+        flakeModules.default
       ];
       inherit systems;
-
-      perSystem = {
-        pkgs,
-        system,
-        ...
-      }: {
-        # This sets `pkgs` to a nixpkgs with allowUnfree option set.
-        _module.args.pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-
-        packages.default = pkgs.hello-unfree;
-      };
 
       partitionedAttrs = {
         apps = "dev";
@@ -50,5 +35,9 @@
           imports = [./nix/dev/flake-module.nix];
         };
       };
-    };
+
+      flake = {
+        inherit flakeModules;
+      };
+    });
 }
