@@ -16,7 +16,9 @@
       systems = import inputs.systems;
       flakeModules.default = import nix/flake-module.nix {inherit inputs;};
     in {
-      debug = true;
+      # Uncomment this to explore option values,
+      # see: https://flake.parts/debug.html
+      # debug = true;
       imports = [
         flake-parts.flakeModules.partitions
         flakeModules.default
