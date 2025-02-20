@@ -8,7 +8,7 @@
         nixpkgs-lib.follows = "nixpkgs";
       };
     };
-    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
   };
   outputs = inputs @ {flake-parts, ...}:
