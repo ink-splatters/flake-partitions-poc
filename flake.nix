@@ -39,7 +39,7 @@
       };
 
       # this won't be exported
-      perSystem = {config,...}: {
+      perSystem = {config, ...}: {
         packages.default = config.packages.hello-unfree;
       };
 
