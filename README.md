@@ -16,9 +16,9 @@ only happen after fetching the input, which is not as cheap.
 - `nix`
 - `nix-command` and `flakes` experimental features enabled
 
-## Hello world
+## Hello unfree world
 
-...free of dev dependencies.
+`Unfree` flavor...free of [dev] dependencies.
 
 The goal of the test is to show that solely dev functionality (e.g. `devShells`) doesn't get evaluated
 upon evaluating `packages.default`
@@ -54,3 +54,7 @@ nix run github:ink-splatters/flake-partitions-poc#install-hooks
 ```sh
 nix flake check github:ink-splatters/flake-partitions-poc
 ```
+
+## Extras
+
+[Consumer flake](./extras/consumer-flake/README.md)

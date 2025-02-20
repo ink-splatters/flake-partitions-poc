@@ -10,6 +10,8 @@
       config.allowUnfree = true;
     };
 
-    packages.default = pkgs.hello-unfree;
+    packages = rec {
+      inherit (pkgs) hello-unfree;
+    };
   };
 }
