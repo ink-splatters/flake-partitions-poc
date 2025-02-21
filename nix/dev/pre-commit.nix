@@ -12,7 +12,7 @@ _: {
         markdownlint = {
           enable = true;
           settings.configuration = {
-            MD013.line_length = 120;
+            MD013.line_length = 130;
           };
         };
         nil.enable = true;

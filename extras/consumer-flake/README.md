@@ -1,9 +1,6 @@
-# flake parts consumer flake
+# Consumer flake
 
-This is an example of completely independent flake' importing what is exposed by import flake
-(in this case: `unfree` flavor of `hello` package)
-
-## Hello unfree world
+This is just a simple example of consuming `flake-parts` flake.
 
 ```sh
 nix run github:ink-splatters/flake-partitions-poc?dir=extras/consumer-flake

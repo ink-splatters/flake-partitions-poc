@@ -1,27 +1,32 @@
 # nix flake partitioning
 
-The PoC implements [flake-parts](https://flake.parts)
-[partitions](https://flake.parts/options/flake-parts-partitions.html) functionality.
-
 ## TL;DR
 
-While the module system does a good job at preserving laziness, the fact that a development
+The PoC implements [flake-parts partitions](https://flake.parts/options/flake-parts-partitions.html) functionality.
+
+_Longer version_:
+
+while the module system does a good job at preserving laziness, the fact that a development
 related import can define packages means that in order to evaluate packages, you need to
 evaluate at least to the point where you can conclude that the development related import
 does not actually define a packages attribute. While the actual evaluation is cheap, it can
 only happen after fetching the input, which is not as cheap.
 
+The "production" flow of the PoC uses `nixpkgs#hello-unfree` under the hood.
+
+## TODO: templates
+
+- [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository) template
+- [flake (`nix flake init`)](https://nix.dev/manual/nix/2.25/command-ref/new-cli/nix3-flake-init), potentially upstreaming it
+
 ## Prerequisites
 
-- `nix`
-- `nix-command` and `flakes` experimental features enabled
+- `nix` with [flakes](https://nixos.wiki/wiki/Flakes) functionality enabled
+- `direnv` [optionally, for development only]
 
-## Hello unfree world
+## Hello `unfree` world
 
-`Unfree` flavor...free of [dev] dependencies.
-
-The goal of the test is to show that solely dev functionality (e.g. `devShells`) doesn't get evaluated
-upon evaluating `packages.default`
+### ...free of development inputs
 
 ```sh
 nix flake run github:ink-splatters/flake-partitions-poc
@@ -29,30 +34,41 @@ nix flake run github:ink-splatters/flake-partitions-poc
 
 ## Development
 
+The flow uses another flake-parts _partition_ (and that's the whole point).
+
 ### Dev shell
 
 ```sh
-nix develop github:ink-splatters/flake-partitions-poc --accept-flake-config
+nix develop --accept-flake-config
 ```
 
-### Run nix formatter
-
-currently formatter is `alejandra`
+Alternatively, if you have `direnv` installed:
 
 ```sh
-nix fmt github:ink-splatters/flake-partitions-poc .
+direnv allow .
 ```
 
-### Install pre-commit hooks
+### Formatter
+
+Currently, the formatter is `alejandra`
 
 ```sh
-nix run github:ink-splatters/flake-partitions-poc#install-hooks
+nix fmt .
 ```
 
-### Run pre-commit checks
+### pre-commit
+
+Normally, pre-commit hooks are installed during dev shell initialization.
+This also can be done manually, using:
 
 ```sh
-nix flake check github:ink-splatters/flake-partitions-poc
+nix run .#install-hooks
+```
+
+To manually run the checks:
+
+```sh
+nix flake check
 ```
 
 ## Extras
