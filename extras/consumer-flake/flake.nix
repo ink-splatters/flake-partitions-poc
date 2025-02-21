@@ -28,11 +28,7 @@
       ];
       inherit systems;
 
-      perSystem = {
-        self',
-        pkgs,
-        ...
-      }: {
+      perSystem = {self', ...}: {
         packages.default = self'.packages.hello-unfree;
       };
     });
