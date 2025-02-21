@@ -6,8 +6,5 @@ This is an example of completely independent flake' importing what is exposed by
 ## Hello unfree world
 
 ```sh
-nix flake run github:ink-splatters/flake-partitions-poc/extras/consumer-flake
+nix run github:ink-splatters/flake-partitions-poc?dir=extras/consumer-flake
 ```
-
-
-
