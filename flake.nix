@@ -32,9 +32,10 @@
         formatter = "dev";
       };
       partitions.dev = {
+        # directory containing inputs-only flake.nix
         extraInputsFlake = ./nix/dev;
         module = {
-          imports = [./nix/dev/flake-module.nix];
+          imports = [./nix/dev];
         };
       };
 
