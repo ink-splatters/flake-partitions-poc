@@ -8,7 +8,7 @@
         nixpkgs-lib.follows = "nixpkgs";
       };
     };
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
     hello-unfree-world = {
       url = "github:ink-splatters/flake-partitions-poc/dfc8f9d34978407ec5a020c1d772266c105c0789";
