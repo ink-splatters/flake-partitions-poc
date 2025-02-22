@@ -11,7 +11,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
     hello-unfree-world = {
-      url = "github:ink-splatters/flake-partitions-poc/dfc8f9d34978407ec5a020c1d772266c105c0789";
+      url = "github:ink-splatters/flake-partitions-poc/e0498283eeb6751b9c79b6fc9baaa11694b81634";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
@@ -27,9 +27,5 @@
         inputs.hello-unfree-world.flakeModules.default
       ];
       inherit systems;
-
-      perSystem = {self', ...}: {
-        packages.default = self'.packages.hello-unfree;
-      };
     });
 }

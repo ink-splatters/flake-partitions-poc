@@ -33,17 +33,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1740074019,
-        "narHash": "sha256-IqVlnosjBiSZwfoQFt3uYoRPXAIJ8+FfU9FUSfgFTfQ=",
+        "lastModified": 1740182555,
+        "narHash": "sha256-EhORX8d6pU8w7pcBSQhGOaDlQ71UrQq1p39W3YJvu8k=",
         "owner": "ink-splatters",
         "repo": "flake-partitions-poc",
-        "rev": "dfc8f9d34978407ec5a020c1d772266c105c0789",
+        "rev": "e0498283eeb6751b9c79b6fc9baaa11694b81634",
         "type": "github"
       },
       "original": {
         "owner": "ink-splatters",
         "repo": "flake-partitions-poc",
-        "rev": "dfc8f9d34978407ec5a020c1d772266c105c0789",
+        "rev": "e0498283eeb6751b9c79b6fc9baaa11694b81634",
         "type": "github"
       }
     },
