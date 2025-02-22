@@ -29,7 +29,7 @@ The "production" flow of the PoC uses `nixpkgs#hello-unfree` under the hood.
 ### ...free of development inputs
 
 ```sh
-nix flake run github:ink-splatters/flake-partitions-poc
+nix run github:ink-splatters/flake-partitions-poc
 ```
 
 ## Development
